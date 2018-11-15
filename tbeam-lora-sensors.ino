@@ -46,7 +46,7 @@ TinyGPSPlus gps;
 #include "Adafruit_Si7021.h"
 #include "Adafruit_BME280.h"
 #include "Adafruit_TSL2561_U.h"
-#include "Adafruit_GFX.h"
+//#include "Adafruit_GFX.h"
 
 // Display Libraries
 #include <U8x8lib.h>
@@ -255,14 +255,14 @@ void do_send(osjob_t* j){
           u8x8.setCursor(0,0);
           u8x8.print("Sats: ");
           u8x8.print(gps.satellites.value());
-          if (gps.location.isValid()) {
-            u8x8.setCursor(1,0);
+          if (1 || gps.location.isValid()) {
+            u8x8.setCursor(0,1);
             u8x8.print("Lat : ");
             u8x8.print(gps.location.lat());
-            u8x8.setCursor(2,0);
+            u8x8.setCursor(0,2);
             u8x8.print("Long: ");
             u8x8.print(gps.location.lng());
-            u8x8.setCursor(3,0);
+            u8x8.setCursor(0,3);
             u8x8.print("Alt : ");
             u8x8.print(gps.altitude.meters());
           }  
